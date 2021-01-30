@@ -1,0 +1,42 @@
+{
+    "version": "0.13.4",
+    "description": "A music streaming application",
+    "homepage": "https://github.com/agersant/polaris",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/agersant/polaris/releases/download/0.13.4/Polaris_0.13.4.msi",
+            "hash": "29605619f85794d435cd98ded28d7a46643c83873cbcd7e2e4c59cfbb4b56f38"
+        }
+    },
+    "extract_dir": "Permafrost\\Polaris",
+    "pre_install": [
+        "ensure \"$persist_dir\" | Out-Null",
+        "Copy-Item \"$persist_dir\\db.sqlite\" \"$dir\" -ErrorAction SilentlyContinue -Force"
+    ],
+    "uninstaller": {
+        "script": "Copy-Item \"$dir\\db.sqlite\" \"$persist_dir\" -ErrorAction SilentlyContinue -Force"
+    },
+    "bin": [
+        [
+            "polaris.exe",
+            "polaris",
+            "-w \"$dir\\web\" -s \"$dir\\swagger\" -d \"$dir\\db.sqlite\""
+        ]
+    ],
+    "shortcuts": [
+        [
+            "polaris.exe",
+            "polaris",
+            "-w \"$dir\\web\" -s \"$dir\\swagger\" -d \"$dir\\db.sqlite\""
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/agersant/polaris/releases/download/$version/Polaris_$version.msi"
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "version": "1.17",
+    "description": "Display and control your Android device",
+    "homepage": "https://github.com/Genymobile/scrcpy",
+    "license": "Apache-2.0",
+    "depends": "adb",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Genymobile/scrcpy/releases/download/v1.17/scrcpy-win64-v1.17.zip",
+            "hash": "8b9e57993c707367ed10ebfe0e1ef563c7a29d9af4a355cd8b6a52a317c73eea"
+        },
+        "32bit": {
+            "url": "https://github.com/Genymobile/scrcpy/releases/download/v1.17/scrcpy-win32-v1.17.zip",
+            "hash": "9a964721c67cc2af0c89d99c2264b2ccb630f004317cbd1611a9256018456878"
+        }
+    },
+    "pre_install": "if (Test-Path \"$dir\\adb.exe\") { Remove-Item \"$dir\\adb.exe\" }",
+    "bin": [
+        "scrcpy.exe",
+        "scrcpy-console.bat",
+        "scrcpy-noconsole.vbs"
+    ],
+    "shortcuts": [
+        [
+            "scrcpy-noconsole.vbs",
+            "scrcpy"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Genymobile/scrcpy/releases/download/v$version/scrcpy-win64-v$version.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/Genymobile/scrcpy/releases/download/v$version/scrcpy-win32-v$version.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS.txt"
+        }
+    }
+}

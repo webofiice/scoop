@@ -1,0 +1,22 @@
+{
+    "version": "0.2021.01.14",
+    "description": "Give your powershell some pizazz.",
+    "homepage": "https://github.com/lukesampson/pshazz",
+    "license": "Unlicense",
+    "url": "https://github.com/lukesampson/pshazz/archive/249a63dbb8cd066ff83270d9e533298c58a24992.zip",
+    "hash": "73d4bb923c2245f0f64f447843b3921e40269479c304b166d5a82f1823af01d9",
+    "extract_dir": "pshazz-249a63dbb8cd066ff83270d9e533298c58a24992",
+    "installer": {
+        "file": "bin\\install.ps1"
+    },
+    "bin": "bin\\pshazz.ps1",
+    "checkver": {
+        "url": "https://github.com/lukesampson/pshazz/commits/master.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
+    },
+    "autoupdate": {
+        "url": "https://github.com/lukesampson/pshazz/archive/$matchSha.zip",
+        "extract_dir": "pshazz-$matchSha"
+    }
+}

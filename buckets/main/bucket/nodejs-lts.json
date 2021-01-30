@@ -1,0 +1,49 @@
+{
+    "version": "14.15.4",
+    "description": "As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications. (Long Term Support)",
+    "homepage": "https://nodejs.org",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://nodejs.org/dist/v14.15.4/node-v14.15.4-win-x64.7z",
+            "hash": "1da86f92f158e53ee79469daf5e6a3e3f2e6e7c233bbf4b91ab12e1ca9503444",
+            "extract_dir": "node-v14.15.4-win-x64"
+        },
+        "32bit": {
+            "url": "https://nodejs.org/dist/v14.15.4/node-v14.15.4-win-x86.7z",
+            "hash": "e631956bbf65cb046c7d38d0f0a4633755e86df1ff5f37c3610d55f706c1f0c0",
+            "extract_dir": "node-v14.15.4-win-x86"
+        }
+    },
+    "persist": [
+        "bin",
+        "cache"
+    ],
+    "env_add_path": [
+        "bin",
+        "."
+    ],
+    "post_install": [
+        "# Set npm prefix to install modules inside bin and npm cache so they persist",
+        "Set-Content -Value \"prefix=$persist_dir\\bin`ncache=$persist_dir\\cache\" -Path \"$dir\\node_modules\\npm\\npmrc\""
+    ],
+    "checkver": {
+        "url": "https://nodejs.org/en/download/",
+        "regex": "LTS Version: <strong>([\\d.]+)</strong>"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://nodejs.org/dist/v$version/node-v$version-win-x64.7z",
+                "extract_dir": "node-v$version-win-x64"
+            },
+            "32bit": {
+                "url": "https://nodejs.org/dist/v$version/node-v$version-win-x86.7z",
+                "extract_dir": "node-v$version-win-x86"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt.asc"
+        }
+    }
+}

@@ -1,0 +1,42 @@
+body
+  font-family 'Source Sans Pro', sans-serif
+
+code, kbd, .line-number, .site-name
+  font-family 'Source Code Pro', monospace
+
+.home
+  .hero
+    .description
+      color $textColor
+      font-size 1.4rem
+
+// hide github nav link
+.repo-link
+  display none !important
+
+.custom-layout
+  .home
+    padding-top 0
+
+// put the search input at the edge
+.links
+  flex-direction row
+  padding-left 0
+  padding-right 1.5rem
+
+  :nth-child(1)
+    order 2
+
+.text-accent
+  color $accentColor
+
+@media (max-width: 419px)
+  .mobile-hide
+    display none !important
+
+.faq .content
+  & h2:after
+    content '?'
+
+.no-edit .page-edit
+  display none

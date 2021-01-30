@@ -1,0 +1,27 @@
+{
+    "version": "6.8.1",
+    "description": "An open-source build automation tool focused on flexibility and performance. (Binaries only without documentation)",
+    "homepage": "https://gradle.org",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": [
+            "java/oraclejdk",
+            "java/openjdk"
+        ]
+    },
+    "url": "https://services.gradle.org/distributions/gradle-6.8.1-bin.zip",
+    "hash": "fd591a34af7385730970399f473afabdb8b28d57fd97d6625c388d090039d6fd",
+    "extract_dir": "gradle-6.8.1",
+    "bin": "bin\\gradle.bat",
+    "checkver": {
+        "url": "https://gradle.org/install/",
+        "regex": "The current Gradle release is version ([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://services.gradle.org/distributions/gradle-$version-bin.zip",
+        "hash": {
+            "url": "$url.sha256"
+        },
+        "extract_dir": "gradle-$version"
+    }
+}

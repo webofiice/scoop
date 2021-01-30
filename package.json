@@ -1,0 +1,44 @@
+{
+  "name": "scoop",
+  "version": "1.0.0",
+  "description": "Documentation for Scoop, the Command-Line Installer for Windows",
+  "main": "n/a",
+  "scripts": {
+    "start": "serve",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pakeweb/scoop.sh.git"
+  },
+  "author": "Eko Eryanto <ekoeryanto@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukesampson/scoop/issues"
+  },
+  "homepage": "https://scoop.sh",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "tiny-debounce": "^0.1.1",
+    "vue-axios": "^2.1.4",
+    "vue-slim-modal": "^1.0.4",
+    "vuepress": "^0.14.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-vue": "^5.0.0-beta.3",
+    "imagemin-lint-staged": "^0.3.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "serve": "^10.0.2",
+    "stylus-supremacy": "^2.12.7",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  }
+}

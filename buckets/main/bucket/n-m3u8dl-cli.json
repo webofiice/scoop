@@ -1,0 +1,27 @@
+{
+    "version": "2.9.4",
+    "description": "A m3u8 downloader",
+    "homepage": "https://github.com/nilaoda/N_m3u8DL-CLI/blob/master/README_ENG.md",
+    "license": "MIT",
+    "suggest": {
+        "ffmpeg": [
+            "ffmpeg",
+            "ffmpeg-nightly"
+        ]
+    },
+    "url": "https://github.com/nilaoda/N_m3u8DL-CLI/releases/download/2.9.4/N_m3u8DL-CLI_v2.9.4.exe#/N_m3u8DL-CLI.exe",
+    "hash": "9a594eb2ab8d920a99b56d5b32332ff4501c7d554adb9f4ac27857baf67346e6",
+    "bin": [
+        "N_m3u8DL-CLI.exe",
+        [
+            "N_m3u8DL-CLI.exe",
+            "N_m3u8DL"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/nilaoda/N_m3u8DL-CLI"
+    },
+    "autoupdate": {
+        "url": "https://github.com/nilaoda/N_m3u8DL-CLI/releases/download/$version/N_m3u8DL-CLI_v$version.exe#/N_m3u8DL-CLI.exe"
+    }
+}

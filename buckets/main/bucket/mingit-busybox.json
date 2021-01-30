@@ -1,0 +1,49 @@
+{
+    "version": "2.30.0.windows.2",
+    "description": "Minimal Git for Windows (MinGit) is a reduced sized package designed to support application integration (like integrated development environments, graph visualizers, etc.) where full console support (colorization, pagniation, etc.) is not needed.(BusyBox-backed MinGit, experimental, smaller version of MinGit)",
+    "homepage": "https://git-for-windows.github.io/",
+    "license": "GPL-2.0-only",
+    "notes": [
+        "To get Git to recognise OpenSSH, you will need to run",
+        "",
+        "scoop install openssh",
+        "[environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')",
+        "",
+        "and then restart powershell."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/git-for-windows/git/releases/download/v2.30.0.windows.2/MinGit-2.30.0.2-busybox-64-bit.zip",
+            "hash": "d8aae417d7a2a69437b8ad6f517a58a1c1719548554822988d3ec53468719525"
+        },
+        "32bit": {
+            "url": "https://github.com/git-for-windows/git/releases/download/v2.30.0.windows.2/MinGit-2.30.0.2-busybox-32-bit.zip",
+            "hash": "b029c8709d452d6f8c074988dc354251ba8db6a54da7384493ad585446403724"
+        }
+    },
+    "bin": [
+        "cmd\\git.exe",
+        "mingw64\\bin\\busybox.exe"
+    ],
+    "env_set": {
+        "GIT_INSTALL_ROOT": "$dir"
+    },
+    "checkver": {
+        "github": "https://github.com/git-for-windows/git",
+        "regex": "v([\\w.]+)/MinGit-(?<full>[\\w.]+)-64-bit"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/git-for-windows/git/releases/download/v$version/MinGit-$matchFull-busybox-64-bit.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/git-for-windows/git/releases/download/v$version/MinGit-$matchFull-busybox-32-bit.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/git-for-windows/git/releases/tag/v$version",
+            "regex": "<td>$basename</td>\\s*<td>$sha256</td>"
+        }
+    }
+}
